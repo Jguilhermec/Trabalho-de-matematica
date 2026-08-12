@@ -1,553 +1,1638 @@
 ```html
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Meu Dinheiro</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<title>Meu Dinheiro</title>
 
-        body {
-            background: #0b1020;
-            color: white;
-            min-height: 100vh;
-        }
+<style>
 
-        header {
-            background: linear-gradient(135deg, #151d38, #202b52);
-            padding: 30px 20px;
-            text-align: center;
-            border-bottom: 2px solid #334477;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-        header h1 {
-            font-size: 36px;
-            margin-bottom: 8px;
-        }
+body {
+    background: #0b1020;
+    color: white;
+    min-height: 100vh;
+}
 
-        header p {
-            color: #b8c2df;
-            font-size: 16px;
-        }
+header {
+    background: linear-gradient(135deg, #151d38, #202b52);
+    padding: 35px 20px;
+    text-align: center;
+    border-bottom: 2px solid #334477;
+}
 
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
+header h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
 
-        .card {
-            background: #151c31;
-            border: 1px solid #293556;
-            border-radius: 18px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
+header p {
+    color: #b8c2df;
+}
 
-        .card h2 {
-            margin-bottom: 20px;
-        }
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
 
-        .salary {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+.card {
+    background: #151c31;
+    border: 1px solid #293556;
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
 
-        input {
-            width: 100%;
-            padding: 14px;
-            border-radius: 10px;
-            border: 1px solid #3a4668;
-            background: #0d1325;
-            color: white;
-            font-size: 16px;
-            outline: none;
-        }
+.card h2 {
+    margin-bottom: 20px;
+}
 
-        input:focus {
-            border-color: #5d8cff;
-        }
+input,
+select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #3a4668;
+    background: #0d1325;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
 
-        .salary input {
-            flex: 1;
-            min-width: 250px;
-        }
+input:focus,
+select:focus {
+    border-color: #5d8cff;
+}
 
-        .expenses {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 18px;
-        }
+/* PERFIS */
 
-        .expense {
-            background: #0f1629;
-            padding: 18px;
-            border-radius: 14px;
-            border: 1px solid #293556;
-        }
+.perfis {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
 
-        .expense label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
+.perfil {
+    background: #0d1426;
+    border: 2px solid #293556;
+    border-radius: 14px;
+    padding: 20px;
+    cursor: pointer;
+    text-align: center;
+    transition: .2s;
+}
 
-        .icon {
-            font-size: 24px;
-            margin-right: 6px;
-        }
+.perfil:hover {
+    transform: translateY(-3px);
+    border-color: #5d8cff;
+}
 
-        button {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 12px;
-            background: #4d7cff;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-        }
+.perfil.ativo {
+    border-color: #5d8cff;
+    background: #182442;
+}
 
-        button:hover {
-            background: #315fd8;
-            transform: translateY(-2px);
-        }
+.perfil .emoji {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
 
-        .result {
-            display: none;
-        }
+.perfil h3 {
+    margin-bottom: 8px;
+}
 
-        .summary {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
-        }
+.perfil p {
+    color: #9da9c7;
+    font-size: 14px;
+    line-height: 1.4;
+}
 
-        .summary-box {
-            padding: 20px;
-            border-radius: 14px;
-            background: #0d1426;
-            border: 1px solid #293556;
-        }
+/* BOTÕES */
 
-        .summary-box h3 {
-            color: #aeb9d8;
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
+.botoes {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
 
-        .summary-box strong {
-            font-size: 25px;
-        }
+button {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: #4d7cff;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
 
-        .positive {
-            color: #55e6a5;
-        }
+button:hover {
+    background: #315fd8;
+    transform: translateY(-2px);
+}
 
-        .negative {
-            color: #ff6464;
-        }
+.botao-sugestao {
+    background: #7657e8;
+}
 
-        .bars {
-            margin-top: 20px;
-        }
+.botao-sugestao:hover {
+    background: #5c42c9;
+}
 
-        .bar-item {
-            margin-bottom: 18px;
-        }
+.botao-redistribuir {
+    background: #27a86b;
+}
 
-        .bar-title {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 7px;
-            color: #d8def0;
-        }
+.botao-redistribuir:hover {
+    background: #1e8655;
+}
 
-        .bar {
-            height: 13px;
-            background: #252e47;
-            border-radius: 20px;
-            overflow: hidden;
-        }
+.botao-cancelar {
+    background: #3a4668;
+}
 
-        .bar-fill {
-            height: 100%;
-            width: 0;
-            background: #5d8cff;
-            border-radius: 20px;
-            transition: width 0.8s;
-        }
+/* GASTOS */
 
-        .tip {
-            margin-top: 25px;
-            padding: 18px;
-            border-radius: 12px;
-            background: #182442;
-            color: #cbd5f0;
-            line-height: 1.5;
-        }
+.expenses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    gap: 18px;
+}
 
-        footer {
-            text-align: center;
-            color: #7783a3;
-            padding: 30px;
-        }
+.expense {
+    background: #0f1629;
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid #293556;
+}
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 28px;
-            }
+.expense label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
 
-            .container {
-                padding: 0 12px;
-            }
+.expense small {
+    display: block;
+    color: #7783a3;
+    margin-top: 8px;
+}
 
-            .card {
-                padding: 18px;
-            }
-        }
-    </style>
+/* RESULTADO */
+
+.resultado {
+    display: none;
+}
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.summary-box {
+    padding: 20px;
+    border-radius: 14px;
+    background: #0d1426;
+    border: 1px solid #293556;
+}
+
+.summary-box h3 {
+    color: #aeb9d8;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.summary-box strong {
+    font-size: 25px;
+}
+
+.positive {
+    color: #55e6a5;
+}
+
+.negative {
+    color: #ff6464;
+}
+
+/* BARRAS */
+
+.bars {
+    margin-top: 20px;
+}
+
+.bar-item {
+    margin-bottom: 18px;
+}
+
+.bar-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+    color: #d8def0;
+}
+
+.bar {
+    height: 13px;
+    background: #252e47;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    width: 0;
+    background: #5d8cff;
+    border-radius: 20px;
+    transition: width .8s;
+}
+
+/* INTELIGÊNCIA */
+
+.inteligencia {
+    display: none;
+    margin-top: 25px;
+    padding: 22px;
+    border-radius: 15px;
+    background: linear-gradient(135deg,#182d46,#182442);
+    border: 1px solid #3d5b83;
+}
+
+.inteligencia h2 {
+    margin-bottom: 12px;
+}
+
+.inteligencia p {
+    color: #cbd5f0;
+    line-height: 1.6;
+}
+
+.alerta {
+    margin-top: 15px;
+    padding: 15px;
+    background: #0d1426;
+    border-radius: 12px;
+}
+
+.excesso {
+    color: #ffb45c;
+    font-weight: bold;
+}
+
+.reserva {
+    color: #55e6a5;
+    font-weight: bold;
+}
+
+/* REDISTRIBUIÇÃO */
+
+.redistribuicao {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #0d1426;
+    border-radius: 14px;
+    border: 1px solid #334477;
+}
+
+.redistribuicao h3 {
+    margin-bottom: 15px;
+}
+
+.destino {
+    margin-top: 15px;
+}
+
+.destino label {
+    display: block;
+    margin-bottom: 8px;
+    color: #b8c2df;
+}
+
+.acoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.mensagem {
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 12px;
+    background: #182442;
+    color: #cbd5f0;
+    line-height: 1.5;
+}
+
+footer {
+    text-align: center;
+    color: #7783a3;
+    padding: 30px;
+}
+
+@media(max-width:700px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .perfis {
+        grid-template-columns: 1fr;
+    }
+
+    .botoes,
+    .acoes {
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
+
 <header>
-    <h1>💰 Meu Dinheiro</h1>
-    <p>Descubra como organizar seu dinheiro e planejar seus gastos.</p>
+
+<h1>💰 Meu Dinheiro</h1>
+
+<p>
+Planeje seus gastos e deixe seu dinheiro trabalhar melhor.
+</p>
+
 </header>
+
 
 <div class="container">
 
-    <div class="card">
-        <h2>💵 Quanto você recebe?</h2>
 
-        <div class="salary">
-            <input
-                type="number"
-                id="renda"
-                placeholder="Digite sua renda mensal"
-                min="0"
-                step="0.01"
-            >
-        </div>
-    </div>
+<!-- RENDA -->
 
-    <div class="card">
-        <h2>📊 Seus gastos mensais</h2>
+<div class="card">
 
-        <div class="expenses">
+<h2>💵 Quanto você recebe?</h2>
 
-            <div class="expense">
-                <label>🏠 Aluguel / Moradia</label>
-                <input type="number" id="aluguel" value="0" min="0">
-            </div>
+<input
+    type="number"
+    id="renda"
+    placeholder="Ex: 2500"
+    min="0"
+    step="0.01"
+>
 
-            <div class="expense">
-                <label>🍔 Alimentação</label>
-                <input type="number" id="comida" value="0" min="0">
-            </div>
 
-            <div class="expense">
-                <label>🚌 Transporte</label>
-                <input type="number" id="transporte" value="0" min="0">
-            </div>
+<h2 style="margin-top:25px;">
+🎯 Escolha seu estilo
+</h2>
 
-            <div class="expense">
-                <label>💡 Contas</label>
-                <input type="number" id="contas" value="0" min="0">
-            </div>
 
-            <div class="expense">
-                <label>🎮 Diversão</label>
-                <input type="number" id="diversao" value="0" min="0">
-            </div>
+<div class="perfis">
 
-            <div class="expense">
-                <label>📱 Tecnologia</label>
-                <input type="number" id="tecnologia" value="0" min="0">
-            </div>
 
-            <div class="expense">
-                <label>🛍️ Extras</label>
-                <input type="number" id="extras" value="0" min="0">
-            </div>
+<div
+class="perfil ativo"
+id="perfilEconomico"
+onclick="selecionarPerfil('economico')"
+>
 
-            <div class="expense">
-                <label>💰 Economia / Reserva</label>
-                <input type="number" id="economia" value="0" min="0">
-            </div>
+<div class="emoji">💰</div>
 
-        </div>
+<h3>Econômico</h3>
 
-        <br>
-
-        <button onclick="calcular()">
-            Calcular meu orçamento
-        </button>
-    </div>
-
-    <div class="card result" id="resultado">
-
-        <h2>📈 Seu planejamento</h2>
-
-        <div class="summary">
-
-            <div class="summary-box">
-                <h3>Renda mensal</h3>
-                <strong id="totalRenda">R$ 0,00</strong>
-            </div>
-
-            <div class="summary-box">
-                <h3>Total de gastos</h3>
-                <strong id="totalGastos">R$ 0,00</strong>
-            </div>
-
-            <div class="summary-box">
-                <h3>Dinheiro restante</h3>
-                <strong id="restante">R$ 0,00</strong>
-            </div>
-
-        </div>
-
-        <h2>📊 Para onde seu dinheiro está indo?</h2>
-
-        <div class="bars">
-
-            <div class="bar-item">
-                <div class="bar-title">
-                    <span>🏠 Moradia</span>
-                    <span id="valorAluguel">R$ 0</span>
-                </div>
-                <div class="bar">
-                    <div class="bar-fill" id="barAluguel"></div>
-                </div>
-            </div>
-
-            <div class="bar-item">
-                <div class="bar-title">
-                    <span>🍔 Alimentação</span>
-                    <span id="valorComida">R$ 0</span>
-                </div>
-                <div class="bar">
-                    <div class="bar-fill" id="barComida"></div>
-                </div>
-            </div>
-
-            <div class="bar-item">
-                <div class="bar-title">
-                    <span>🚌 Transporte</span>
-                    <span id="valorTransporte">R$ 0</span>
-                </div>
-                <div class="bar">
-                    <div class="bar-fill" id="barTransporte"></div>
-                </div>
-            </div>
-
-            <div class="bar-item">
-                <div class="bar-title">
-                    <span>💡 Contas</span>
-                    <span id="valorContas">R$ 0</span>
-                </div>
-                <div class="bar">
-                    <div class="bar-fill" id="barContas"></div>
-                </div>
-            </div>
-
-            <div class="bar-item">
-                <div class="bar-title">
-                    <span>🎮 Diversão</span>
-                    <span id="valorDiversao">R$ 0</span>
-                </div>
-                <div class="bar">
-                    <div class="bar-fill" id="barDiversao"></div>
-                </div>
-            </div>
-
-            <div class="bar-item">
-                <div class="bar-title">
-                    <span>📱 Tecnologia</span>
-                    <span id="valorTecnologia">R$ 0</span>
-                </div>
-                <div class="bar">
-                    <div class="bar-fill" id="barTecnologia"></div>
-                </div>
-            </div>
-
-            <div class="bar-item">
-                <div class="bar-title">
-                    <span>🛍️ Extras</span>
-                    <span id="valorExtras">R$ 0</span>
-                </div>
-                <div class="bar">
-                    <div class="bar-fill" id="barExtras"></div>
-                </div>
-            </div>
-
-            <div class="bar-item">
-                <div class="bar-title">
-                    <span>💰 Economia</span>
-                    <span id="valorEconomia">R$ 0</span>
-                </div>
-                <div class="bar">
-                    <div class="bar-fill" id="barEconomia"></div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="tip" id="mensagem"></div>
-
-    </div>
+<p>
+Prioriza necessidades e reserva financeira.
+</p>
 
 </div>
 
+
+<div
+class="perfil"
+id="perfilEquilibrado"
+onclick="selecionarPerfil('equilibrado')"
+>
+
+<div class="emoji">⚖️</div>
+
+<h3>Equilibrado</h3>
+
+<p>
+Divide dinheiro entre necessidades,
+lazer e economia.
+</p>
+
+</div>
+
+
+<div
+class="perfil"
+id="perfilLazer"
+onclick="selecionarPerfil('lazer')"
+>
+
+<div class="emoji">🎮</div>
+
+<h3>Lazer</h3>
+
+<p>
+Permite mais diversão e tecnologia.
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="botoes">
+
+<button
+class="botao-sugestao"
+onclick="criarOrcamento()"
+>
+✨ Criar orçamento
+</button>
+
+
+<button onclick="calcular()">
+📊 Calcular
+</button>
+
+</div>
+
+</div>
+
+
+<!-- GASTOS -->
+
+<div class="card">
+
+<h2>📊 Seus gastos</h2>
+
+
+<div class="expenses">
+
+
+<div class="expense">
+
+<label>🏠 Moradia</label>
+
+<input
+type="number"
+id="aluguel"
+value="0"
+min="0"
+>
+
+<small>
+Aluguel, condomínio etc.
+</small>
+
+</div>
+
+
+<div class="expense">
+
+<label>🍔 Alimentação</label>
+
+<input
+type="number"
+id="comida"
+value="0"
+min="0"
+>
+
+<small>
+Mercado, comida etc.
+</small>
+
+</div>
+
+
+<div class="expense">
+
+<label>🚌 Transporte</label>
+
+<input
+type="number"
+id="transporte"
+value="0"
+min="0"
+>
+
+<small>
+Ônibus, combustível etc.
+</small>
+
+</div>
+
+
+<div class="expense">
+
+<label>💡 Contas</label>
+
+<input
+type="number"
+id="contas"
+value="0"
+min="0"
+>
+
+<small>
+Água, luz, internet etc.
+</small>
+
+</div>
+
+
+<div class="expense">
+
+<label>🎮 Diversão</label>
+
+<input
+type="number"
+id="diversao"
+value="0"
+min="0"
+>
+
+<small>
+Jogos, cinema, passeios etc.
+</small>
+
+</div>
+
+
+<div class="expense">
+
+<label>📱 Tecnologia</label>
+
+<input
+type="number"
+id="tecnologia"
+value="0"
+min="0"
+>
+
+<small>
+Celular, videogame, PC etc.
+</small>
+
+</div>
+
+
+<div class="expense">
+
+<label>🛍️ Extras</label>
+
+<input
+type="number"
+id="extras"
+value="0"
+min="0"
+>
+
+<small>
+Compras e outros gastos.
+</small>
+
+</div>
+
+
+<div class="expense">
+
+<label>💰 Reserva</label>
+
+<input
+type="number"
+id="economia"
+value="0"
+min="0"
+>
+
+<small>
+Dinheiro guardado.
+</small>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- RESULTADO -->
+
+<div
+class="card resultado"
+id="resultado"
+>
+
+<h2>📈 Seu planejamento</h2>
+
+
+<div class="summary">
+
+
+<div class="summary-box">
+
+<h3>Renda</h3>
+
+<strong id="totalRenda">
+R$ 0,00
+</strong>
+
+</div>
+
+
+<div class="summary-box">
+
+<h3>Total planejado</h3>
+
+<strong id="totalGastos">
+R$ 0,00
+</strong>
+
+</div>
+
+
+<div class="summary-box">
+
+<h3>Sobra</h3>
+
+<strong id="restante">
+R$ 0,00
+</strong>
+
+</div>
+
+
+</div>
+
+
+<h2>
+📊 Distribuição
+</h2>
+
+
+<div class="bars">
+
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>🏠 Moradia</span>
+<span id="valorAluguel">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barAluguel"
+></div>
+</div>
+
+</div>
+
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>🍔 Alimentação</span>
+<span id="valorComida">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barComida"
+></div>
+</div>
+
+</div>
+
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>🚌 Transporte</span>
+<span id="valorTransporte">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barTransporte"
+></div>
+</div>
+
+</div>
+
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>💡 Contas</span>
+<span id="valorContas">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barContas"
+></div>
+</div>
+
+</div>
+
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>🎮 Diversão</span>
+<span id="valorDiversao">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barDiversao"
+></div>
+</div>
+
+</div>
+
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>📱 Tecnologia</span>
+<span id="valorTecnologia">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barTecnologia"
+></div>
+</div>
+
+</div>
+
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>🛍️ Extras</span>
+<span id="valorExtras">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barExtras"
+></div>
+</div>
+
+</div>
+
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>💰 Reserva</span>
+<span id="valorEconomia">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barEconomia"
+></div>
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- MECÂNICA INTELIGENTE -->
+
+<div
+class="inteligencia"
+id="inteligencia"
+>
+
+<h2>
+🤖 Análise inteligente do seu dinheiro
+</h2>
+
+<p id="analise"></p>
+
+
+<div
+class="alerta"
+id="alerta"
+></div>
+
+
+<div
+class="redistribuicao"
+id="redistribuicao"
+>
+
+<h3>
+🔄 Redirecionar dinheiro
+</h3>
+
+<p>
+O site encontrou dinheiro que pode ser melhor aproveitado.
+Escolha para onde deseja direcioná-lo:
+</p>
+
+
+<div class="destino">
+
+<label>
+Destino do dinheiro:
+</label>
+
+
+<select id="destino">
+
+<option value="reserva">
+💰 Reserva financeira
+</option>
+
+<option value="necessidades">
+🏠 Necessidades importantes
+</option>
+
+<option value="dividir">
+⚖️ Dividir entre reserva e necessidades
+</option>
+
+</select>
+
+</div>
+
+
+<div class="acoes">
+
+<button
+class="botao-redistribuir"
+onclick="redistribuir()"
+>
+🔄 Redistribuir dinheiro
+</button>
+
+
+<button
+class="botao-cancelar"
+onclick="fecharRedistribuicao()"
+>
+Cancelar
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div
+class="mensagem"
+id="mensagem"
+></div>
+
+
+</div>
+
+
+</div>
+
+
 <footer>
-    Meu Dinheiro © 2026 — Planeje melhor seus gastos.
+
+Meu Dinheiro © 2026
+
 </footer>
+
 
 
 <script>
 
-function dinheiro(valor) {
-    return valor.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    });
+
+/* ==========================================
+   CONFIGURAÇÃO
+========================================== */
+
+
+let perfilSelecionado = "economico";
+
+
+let valorRedirecionar = 0;
+
+
+let fonteExcesso = [];
+
+
+const perfis = {
+
+economico: {
+
+aluguel:25,
+comida:15,
+transporte:10,
+contas:10,
+diversao:5,
+tecnologia:5,
+extras:5,
+economia:25
+
+},
+
+equilibrado: {
+
+aluguel:30,
+comida:15,
+transporte:10,
+contas:10,
+diversao:7,
+tecnologia:5,
+extras:8,
+economia:15
+
+},
+
+lazer: {
+
+aluguel:30,
+comida:15,
+transporte:10,
+contas:10,
+diversao:10,
+tecnologia:10,
+extras:5,
+economia:10
+
 }
 
-function valor(id) {
-    return Number(document.getElementById(id).value) || 0;
+};
+
+
+/* ==========================================
+   FORMATAÇÃO
+========================================== */
+
+
+function dinheiro(valor) {
+
+return valor.toLocaleString(
+"pt-BR",
+{
+style:"currency",
+currency:"BRL"
 }
+);
+
+}
+
+
+function valor(id) {
+
+return Number(
+document.getElementById(id).value
+) || 0;
+
+}
+
+
+/* ==========================================
+   PERFIL
+========================================== */
+
+
+function selecionarPerfil(perfil) {
+
+perfilSelecionado = perfil;
+
+
+document
+.querySelectorAll(".perfil")
+.forEach(el =>
+el.classList.remove("ativo")
+);
+
+
+const nomes = {
+
+economico:"perfilEconomico",
+equilibrado:"perfilEquilibrado",
+lazer:"perfilLazer"
+
+};
+
+
+document
+.getElementById(nomes[perfil])
+.classList.add("ativo");
+
+}
+
+
+/* ==========================================
+   CRIAR ORÇAMENTO
+========================================== */
+
+
+function criarOrcamento() {
+
+const renda = valor("renda");
+
+
+if(renda <= 0) {
+
+alert(
+"Digite sua renda mensal primeiro."
+);
+
+return;
+
+}
+
+
+const porcentagens =
+perfis[perfilSelecionado];
+
+
+Object.keys(porcentagens)
+.forEach(categoria => {
+
+document
+.getElementById(categoria)
+.value =
+(
+renda *
+porcentagens[categoria] /
+100
+).toFixed(2);
+
+});
+
+
+calcular();
+
+}
+
+
+/* ==========================================
+   CALCULAR
+========================================== */
+
 
 function calcular() {
 
-    const renda = valor("renda");
+const renda = valor("renda");
 
-    if (renda <= 0) {
-        alert("Digite sua renda mensal primeiro.");
-        return;
-    }
 
-    const gastos = {
-        aluguel: valor("aluguel"),
-        comida: valor("comida"),
-        transporte: valor("transporte"),
-        contas: valor("contas"),
-        diversao: valor("diversao"),
-        tecnologia: valor("tecnologia"),
-        extras: valor("extras"),
-        economia: valor("economia")
-    };
+if(renda <= 0) {
 
-    const total =
-        gastos.aluguel +
-        gastos.comida +
-        gastos.transporte +
-        gastos.contas +
-        gastos.diversao +
-        gastos.tecnologia +
-        gastos.extras +
-        gastos.economia;
+alert(
+"Digite sua renda mensal primeiro."
+);
 
-    const restante = renda - total;
+return;
 
-    document.getElementById("resultado").style.display = "block";
-
-    document.getElementById("totalRenda").textContent = dinheiro(renda);
-    document.getElementById("totalGastos").textContent = dinheiro(total);
-    document.getElementById("restante").textContent = dinheiro(restante);
-
-    const restanteElemento = document.getElementById("restante");
-
-    if (restante >= 0) {
-        restanteElemento.className = "positive";
-    } else {
-        restanteElemento.className = "negative";
-    }
-
-    const categorias = [
-        ["aluguel", "valorAluguel", "barAluguel"],
-        ["comida", "valorComida", "barComida"],
-        ["transporte", "valorTransporte", "barTransporte"],
-        ["contas", "valorContas", "barContas"],
-        ["diversao", "valorDiversao", "barDiversao"],
-        ["tecnologia", "valorTecnologia", "barTecnologia"],
-        ["extras", "valorExtras", "barExtras"],
-        ["economia", "valorEconomia", "barEconomia"]
-    ];
-
-    categorias.forEach(function(item) {
-
-        const categoria = item[0];
-        const texto = item[1];
-        const barra = item[2];
-
-        document.getElementById(texto).textContent =
-            dinheiro(gastos[categoria]);
-
-        let porcentagem = (gastos[categoria] / renda) * 100;
-
-        if (porcentagem > 100) {
-            porcentagem = 100;
-        }
-
-        document.getElementById(barra).style.width =
-            porcentagem + "%";
-    });
-
-    const mensagem = document.getElementById("mensagem");
-
-    if (restante < 0) {
-
-        mensagem.innerHTML =
-            "⚠️ <strong>Atenção!</strong> Seus gastos estão maiores que sua renda. " +
-            "Tente reduzir alguns gastos, principalmente os que não são essenciais.";
-
-    } else if (restante === 0) {
-
-        mensagem.innerHTML =
-            "⚠️ Você está gastando toda a sua renda. " +
-            "Se possível, tente reservar uma pequena parte para emergências.";
-
-    } else if (gastos.economia > 0) {
-
-        mensagem.innerHTML =
-            "✅ <strong>Boa organização!</strong> Você separou " +
-            dinheiro(gastos.economia) +
-            " para economia/reserva e ainda possui " +
-            dinheiro(restante) +
-            " disponível.";
-
-    } else {
-
-        mensagem.innerHTML =
-            "💡 Você ainda tem " +
-            dinheiro(restante) +
-            " disponíveis. " +
-            "Uma boa ideia pode ser separar uma parte para uma reserva ou para algum objetivo, como comprar um celular ou videogame.";
-
-    }
-
-    document.getElementById("resultado").scrollIntoView({
-        behavior: "smooth"
-    });
 }
+
+
+const gastos = {
+
+aluguel:valor("aluguel"),
+comida:valor("comida"),
+transporte:valor("transporte"),
+contas:valor("contas"),
+diversao:valor("diversao"),
+tecnologia:valor("tecnologia"),
+extras:valor("extras"),
+economia:valor("economia")
+
+};
+
+
+const total =
+
+gastos.aluguel +
+gastos.comida +
+gastos.transporte +
+gastos.contas +
+gastos.diversao +
+gastos.tecnologia +
+gastos.extras +
+gastos.economia;
+
+
+const sobra =
+renda - total;
+
+
+document
+.getElementById("resultado")
+.style.display = "block";
+
+
+document
+.getElementById("totalRenda")
+.textContent =
+dinheiro(renda);
+
+
+document
+.getElementById("totalGastos")
+.textContent =
+dinheiro(total);
+
+
+document
+.getElementById("restante")
+.textContent =
+dinheiro(sobra);
+
+
+const restante =
+document.getElementById("restante");
+
+
+restante.className =
+sobra >= 0
+? "positive"
+: "negative";
+
+
+const categorias = [
+
+["aluguel","valorAluguel","barAluguel"],
+
+["comida","valorComida","barComida"],
+
+["transporte","valorTransporte","barTransporte"],
+
+["contas","valorContas","barContas"],
+
+["diversao","valorDiversao","barDiversao"],
+
+["tecnologia","valorTecnologia","barTecnologia"],
+
+["extras","valorExtras","barExtras"],
+
+["economia","valorEconomia","barEconomia"]
+
+];
+
+
+categorias.forEach(item => {
+
+const categoria = item[0];
+
+document
+.getElementById(item[1])
+.textContent =
+dinheiro(gastos[categoria]);
+
+
+let porcentagem =
+gastos[categoria] /
+renda *
+100;
+
+
+porcentagem =
+Math.min(porcentagem,100);
+
+
+document
+.getElementById(item[2])
+.style.width =
+porcentagem + "%";
+
+});
+
+
+analisarDinheiro(
+renda,
+gastos,
+sobra
+);
+
+
+document
+.getElementById("resultado")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* ==========================================
+   ANÁLISE INTELIGENTE
+========================================== */
+
+
+function analisarDinheiro(
+renda,
+gastos,
+sobra
+) {
+
+
+const inteligencia =
+document.getElementById("inteligencia");
+
+
+const analise =
+document.getElementById("analise");
+
+
+const alerta =
+document.getElementById("alerta");
+
+
+const redistribuicao =
+document.getElementById("redistribuicao");
+
+
+inteligencia.style.display =
+"block";
+
+
+redistribuicao.style.display =
+"none";
+
+
+valorRedirecionar = 0;
+
+fonteExcesso = [];
+
+
+/*
+    IDENTIFICA CATEGORIAS
+    DESNECESSÁRIAS ACIMA DO LIMITE
+*/
+
+
+const limites = {
+
+diversao:8,
+
+tecnologia:8,
+
+extras:7
+
+};
+
+
+let excessoTotal = 0;
+
+
+Object.keys(limites)
+.forEach(categoria => {
+
+const limite =
+renda *
+limites[categoria] /
+100;
+
+
+if(gastos[categoria] > limite) {
+
+const excesso =
+gastos[categoria] -
+limite;
+
+
+excessoTotal +=
+excesso;
+
+
+fonteExcesso.push({
+
+categoria:categoria,
+
+valor:excesso
+
+});
+
+}
+
+});
+
+
+/*
+    DINHEIRO SOBRANDO
+*/
+
+
+let sobraRedirecionavel =
+Math.max(sobra,0);
+
+
+/*
+    SOMA O EXCESSO
+*/
+
+
+valorRedirecionar =
+sobraRedirecionavel +
+excessoTotal;
+
+
+/*
+    SE HOUVER DINHEIRO
+*/
+
+
+if(valorRedirecionar > 0) {
+
+
+analise.innerHTML = `
+
+O sistema encontrou
+<strong>
+${dinheiro(valorRedirecionar)}
+</strong>
+que pode ser melhor aproveitado.
+
+`;
+
+
+let detalhes = "";
+
+
+if(sobraRedirecionavel > 0) {
+
+detalhes += `
+
+💵 Você tem
+<span class="reserva">
+${dinheiro(sobraRedirecionavel)}
+</span>
+que não foi utilizado.
+
+<br>
+
+`;
+
+}
+
+
+if(excessoTotal > 0) {
+
+detalhes += `
+
+⚠️ Você está gastando aproximadamente
+<span class="excesso">
+${dinheiro(excessoTotal)}
+</span>
+acima do limite sugerido em
+diversão, tecnologia ou extras.
+
+`;
+
+}
+
+
+alerta.innerHTML =
+detalhes;
+
+
+redistribuicao.style.display =
+"block";
+
+
+} else {
+
+
+analise.innerHTML = `
+
+✅ Seu dinheiro está bem distribuído.
+Não encontramos sobra ou excesso
+significativo nas categorias analisadas.
+
+`;
+
+
+alerta.innerHTML = `
+
+💡 Continue acompanhando seus gastos.
+Uma reserva financeira pode ajudar
+em situações inesperadas.
+
+`;
+
+}
+
+}
+
+
+/* ==========================================
+   REDISTRIBUIR
+========================================== */
+
+
+function redistribuir() {
+
+
+if(valorRedirecionar <= 0) {
+
+return;
+
+}
+
+
+const destino =
+document.getElementById("destino")
+.value;
+
+
+let reserva = 0;
+
+let necessidades = 0;
+
+
+/*
+    RESERVA
+*/
+
+
+if(destino === "reserva") {
+
+reserva =
+valorRedirecionar;
+
+
+/*
+    NECESSIDADES
+*/
+
+
+} else if(destino === "necessidades") {
+
+necessidades =
+valorRedirecionar;
+
+
+/*
+    DIVIDIR
+*/
+
+
+} else {
+
+reserva =
+valorRedirecionar *
+0.60;
+
+necessidades =
+valorRedirecionar *
+0.40;
+
+}
+
+
+/*
+    ADICIONAR À RESERVA
+*/
+
+
+const economiaAtual =
+valor("economia");
+
+
+document
+.getElementById("economia")
+.value =
+(
+economiaAtual +
+reserva
+).toFixed(2);
+
+
+/*
+    ADICIONAR ÀS CONTAS
+    COMO "NECESSIDADES"
+*/
+
+
+const contasAtual =
+valor("contas");
+
+
+document
+.getElementById("contas")
+.value =
+(
+contasAtual +
+necessidades
+).toFixed(2);
+
+
+/*
+    ATUALIZAR
+*/
+
+
+calcular();
+
+
+const alerta =
+document.getElementById("alerta");
+
+
+alerta.innerHTML = `
+
+🔄 <strong>Dinheiro redistribuído!</strong>
+
+<br><br>
+
+${reserva > 0
+? `💰 ${dinheiro(reserva)} foram enviados para a reserva financeira.<br>`
+: ""}
+
+${necessidades > 0
+? `🏠 ${dinheiro(necessidades)} foram direcionados para necessidades importantes.`
+: ""}
+
+<br><br>
+
+Agora esse dinheiro está sendo
+planejado de uma maneira mais útil.
+
+`;
+
+
+document
+.getElementById("redistribuicao")
+.style.display =
+"none";
+
+
+valorRedirecionar = 0;
+
+}
+
+
+/* ==========================================
+   CANCELAR
+========================================== */
+
+
+function fecharRedistribuicao() {
+
+document
+.getElementById("redistribuicao")
+.style.display =
+"none";
+
+}
+
 
 </script>
 
+
 </body>
+
 </html>
 ```
