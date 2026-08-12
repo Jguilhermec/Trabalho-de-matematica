@@ -1,1 +1,554 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Dinheiro</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0b1020;
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #151d38, #202b52);
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 2px solid #334477;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #b8c2df;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: #151c31;
+            border: 1px solid #293556;
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .card h2 {
+            margin-bottom: 20px;
+        }
+
+        .salary {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid #3a4668;
+            background: #0d1325;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #5d8cff;
+        }
+
+        .salary input {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .expenses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+        }
+
+        .expense {
+            background: #0f1629;
+            padding: 18px;
+            border-radius: 14px;
+            border: 1px solid #293556;
+        }
+
+        .expense label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .icon {
+            font-size: 24px;
+            margin-right: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: #4d7cff;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #315fd8;
+            transform: translateY(-2px);
+        }
+
+        .result {
+            display: none;
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .summary-box {
+            padding: 20px;
+            border-radius: 14px;
+            background: #0d1426;
+            border: 1px solid #293556;
+        }
+
+        .summary-box h3 {
+            color: #aeb9d8;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .summary-box strong {
+            font-size: 25px;
+        }
+
+        .positive {
+            color: #55e6a5;
+        }
+
+        .negative {
+            color: #ff6464;
+        }
+
+        .bars {
+            margin-top: 20px;
+        }
+
+        .bar-item {
+            margin-bottom: 18px;
+        }
+
+        .bar-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 7px;
+            color: #d8def0;
+        }
+
+        .bar {
+            height: 13px;
+            background: #252e47;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            width: 0;
+            background: #5d8cff;
+            border-radius: 20px;
+            transition: width 0.8s;
+        }
+
+        .tip {
+            margin-top: 25px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #182442;
+            color: #cbd5f0;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            color: #7783a3;
+            padding: 30px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            .container {
+                padding: 0 12px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>💰 Meu Dinheiro</h1>
+    <p>Descubra como organizar seu dinheiro e planejar seus gastos.</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>💵 Quanto você recebe?</h2>
+
+        <div class="salary">
+            <input
+                type="number"
+                id="renda"
+                placeholder="Digite sua renda mensal"
+                min="0"
+                step="0.01"
+            >
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📊 Seus gastos mensais</h2>
+
+        <div class="expenses">
+
+            <div class="expense">
+                <label>🏠 Aluguel / Moradia</label>
+                <input type="number" id="aluguel" value="0" min="0">
+            </div>
+
+            <div class="expense">
+                <label>🍔 Alimentação</label>
+                <input type="number" id="comida" value="0" min="0">
+            </div>
+
+            <div class="expense">
+                <label>🚌 Transporte</label>
+                <input type="number" id="transporte" value="0" min="0">
+            </div>
+
+            <div class="expense">
+                <label>💡 Contas</label>
+                <input type="number" id="contas" value="0" min="0">
+            </div>
+
+            <div class="expense">
+                <label>🎮 Diversão</label>
+                <input type="number" id="diversao" value="0" min="0">
+            </div>
+
+            <div class="expense">
+                <label>📱 Tecnologia</label>
+                <input type="number" id="tecnologia" value="0" min="0">
+            </div>
+
+            <div class="expense">
+                <label>🛍️ Extras</label>
+                <input type="number" id="extras" value="0" min="0">
+            </div>
+
+            <div class="expense">
+                <label>💰 Economia / Reserva</label>
+                <input type="number" id="economia" value="0" min="0">
+            </div>
+
+        </div>
+
+        <br>
+
+        <button onclick="calcular()">
+            Calcular meu orçamento
+        </button>
+    </div>
+
+    <div class="card result" id="resultado">
+
+        <h2>📈 Seu planejamento</h2>
+
+        <div class="summary">
+
+            <div class="summary-box">
+                <h3>Renda mensal</h3>
+                <strong id="totalRenda">R$ 0,00</strong>
+            </div>
+
+            <div class="summary-box">
+                <h3>Total de gastos</h3>
+                <strong id="totalGastos">R$ 0,00</strong>
+            </div>
+
+            <div class="summary-box">
+                <h3>Dinheiro restante</h3>
+                <strong id="restante">R$ 0,00</strong>
+            </div>
+
+        </div>
+
+        <h2>📊 Para onde seu dinheiro está indo?</h2>
+
+        <div class="bars">
+
+            <div class="bar-item">
+                <div class="bar-title">
+                    <span>🏠 Moradia</span>
+                    <span id="valorAluguel">R$ 0</span>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill" id="barAluguel"></div>
+                </div>
+            </div>
+
+            <div class="bar-item">
+                <div class="bar-title">
+                    <span>🍔 Alimentação</span>
+                    <span id="valorComida">R$ 0</span>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill" id="barComida"></div>
+                </div>
+            </div>
+
+            <div class="bar-item">
+                <div class="bar-title">
+                    <span>🚌 Transporte</span>
+                    <span id="valorTransporte">R$ 0</span>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill" id="barTransporte"></div>
+                </div>
+            </div>
+
+            <div class="bar-item">
+                <div class="bar-title">
+                    <span>💡 Contas</span>
+                    <span id="valorContas">R$ 0</span>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill" id="barContas"></div>
+                </div>
+            </div>
+
+            <div class="bar-item">
+                <div class="bar-title">
+                    <span>🎮 Diversão</span>
+                    <span id="valorDiversao">R$ 0</span>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill" id="barDiversao"></div>
+                </div>
+            </div>
+
+            <div class="bar-item">
+                <div class="bar-title">
+                    <span>📱 Tecnologia</span>
+                    <span id="valorTecnologia">R$ 0</span>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill" id="barTecnologia"></div>
+                </div>
+            </div>
+
+            <div class="bar-item">
+                <div class="bar-title">
+                    <span>🛍️ Extras</span>
+                    <span id="valorExtras">R$ 0</span>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill" id="barExtras"></div>
+                </div>
+            </div>
+
+            <div class="bar-item">
+                <div class="bar-title">
+                    <span>💰 Economia</span>
+                    <span id="valorEconomia">R$ 0</span>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill" id="barEconomia"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tip" id="mensagem"></div>
+
+    </div>
+
+</div>
+
+<footer>
+    Meu Dinheiro © 2026 — Planeje melhor seus gastos.
+</footer>
+
+
+<script>
+
+function dinheiro(valor) {
+    return valor.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+}
+
+function valor(id) {
+    return Number(document.getElementById(id).value) || 0;
+}
+
+function calcular() {
+
+    const renda = valor("renda");
+
+    if (renda <= 0) {
+        alert("Digite sua renda mensal primeiro.");
+        return;
+    }
+
+    const gastos = {
+        aluguel: valor("aluguel"),
+        comida: valor("comida"),
+        transporte: valor("transporte"),
+        contas: valor("contas"),
+        diversao: valor("diversao"),
+        tecnologia: valor("tecnologia"),
+        extras: valor("extras"),
+        economia: valor("economia")
+    };
+
+    const total =
+        gastos.aluguel +
+        gastos.comida +
+        gastos.transporte +
+        gastos.contas +
+        gastos.diversao +
+        gastos.tecnologia +
+        gastos.extras +
+        gastos.economia;
+
+    const restante = renda - total;
+
+    document.getElementById("resultado").style.display = "block";
+
+    document.getElementById("totalRenda").textContent = dinheiro(renda);
+    document.getElementById("totalGastos").textContent = dinheiro(total);
+    document.getElementById("restante").textContent = dinheiro(restante);
+
+    const restanteElemento = document.getElementById("restante");
+
+    if (restante >= 0) {
+        restanteElemento.className = "positive";
+    } else {
+        restanteElemento.className = "negative";
+    }
+
+    const categorias = [
+        ["aluguel", "valorAluguel", "barAluguel"],
+        ["comida", "valorComida", "barComida"],
+        ["transporte", "valorTransporte", "barTransporte"],
+        ["contas", "valorContas", "barContas"],
+        ["diversao", "valorDiversao", "barDiversao"],
+        ["tecnologia", "valorTecnologia", "barTecnologia"],
+        ["extras", "valorExtras", "barExtras"],
+        ["economia", "valorEconomia", "barEconomia"]
+    ];
+
+    categorias.forEach(function(item) {
+
+        const categoria = item[0];
+        const texto = item[1];
+        const barra = item[2];
+
+        document.getElementById(texto).textContent =
+            dinheiro(gastos[categoria]);
+
+        let porcentagem = (gastos[categoria] / renda) * 100;
+
+        if (porcentagem > 100) {
+            porcentagem = 100;
+        }
+
+        document.getElementById(barra).style.width =
+            porcentagem + "%";
+    });
+
+    const mensagem = document.getElementById("mensagem");
+
+    if (restante < 0) {
+
+        mensagem.innerHTML =
+            "⚠️ <strong>Atenção!</strong> Seus gastos estão maiores que sua renda. " +
+            "Tente reduzir alguns gastos, principalmente os que não são essenciais.";
+
+    } else if (restante === 0) {
+
+        mensagem.innerHTML =
+            "⚠️ Você está gastando toda a sua renda. " +
+            "Se possível, tente reservar uma pequena parte para emergências.";
+
+    } else if (gastos.economia > 0) {
+
+        mensagem.innerHTML =
+            "✅ <strong>Boa organização!</strong> Você separou " +
+            dinheiro(gastos.economia) +
+            " para economia/reserva e ainda possui " +
+            dinheiro(restante) +
+            " disponível.";
+
+    } else {
+
+        mensagem.innerHTML =
+            "💡 Você ainda tem " +
+            dinheiro(restante) +
+            " disponíveis. " +
+            "Uma boa ideia pode ser separar uma parte para uma reserva ou para algum objetivo, como comprar um celular ou videogame.";
+
+    }
+
+    document.getElementById("resultado").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
+```
 
