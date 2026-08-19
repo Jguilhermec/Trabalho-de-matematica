@@ -1,9 +1,7 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -375,9 +373,7 @@ footer {
 
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -389,9 +385,7 @@ Planeje seus gastos e deixe seu dinheiro trabalhar melhor.
 
 </header>
 
-
 <div class="container">
-
 
 <!-- RENDA -->
 
@@ -407,14 +401,11 @@ Planeje seus gastos e deixe seu dinheiro trabalhar melhor.
     step="0.01"
 >
 
-
 <h2 style="margin-top:25px;">
 🎯 Escolha seu estilo
 </h2>
 
-
 <div class="perfis">
-
 
 <div
 class="perfil ativo"
@@ -431,7 +422,6 @@ Prioriza necessidades e reserva financeira.
 </p>
 
 </div>
-
 
 <div
 class="perfil"
@@ -450,7 +440,6 @@ lazer e economia.
 
 </div>
 
-
 <div
 class="perfil"
 id="perfilLazer"
@@ -467,9 +456,7 @@ Permite mais diversão e tecnologia.
 
 </div>
 
-
 </div>
-
 
 <div class="botoes">
 
@@ -480,7 +467,6 @@ onclick="criarOrcamento()"
 ✨ Criar orçamento
 </button>
 
-
 <button onclick="calcular()">
 📊 Calcular
 </button>
@@ -489,16 +475,13 @@ onclick="criarOrcamento()"
 
 </div>
 
-
 <!-- GASTOS -->
 
 <div class="card">
 
 <h2>📊 Seus gastos</h2>
 
-
 <div class="expenses">
-
 
 <div class="expense">
 
@@ -517,7 +500,6 @@ Aluguel, condomínio etc.
 
 </div>
 
-
 <div class="expense">
 
 <label>🍔 Alimentação</label>
@@ -534,7 +516,6 @@ Mercado, comida etc.
 </small>
 
 </div>
-
 
 <div class="expense">
 
@@ -553,7 +534,6 @@ min="0"
 
 </div>
 
-
 <div class="expense">
 
 <label>💡 Contas</label>
@@ -570,7 +550,6 @@ min="0"
 </small>
 
 </div>
-
 
 <div class="expense">
 
@@ -589,7 +568,6 @@ Jogos, cinema, passeios etc.
 
 </div>
 
-
 <div class="expense">
 
 <label>📱 Tecnologia</label>
@@ -606,7 +584,6 @@ Celular, videogame, PC etc.
 </small>
 
 </div>
-
 
 <div class="expense">
 
@@ -625,7 +602,6 @@ Compras e outros gastos.
 
 </div>
 
-
 <div class="expense">
 
 <label>💰 Reserva</label>
@@ -643,11 +619,9 @@ Dinheiro guardado.
 
 </div>
 
-
 </div>
 
 </div>
-
 
 <!-- RESULTADO -->
 
@@ -658,9 +632,7 @@ id="resultado"
 
 <h2>📈 Seu planejamento</h2>
 
-
 <div class="summary">
-
 
 <div class="summary-box">
 
@@ -672,7 +644,6 @@ R$ 0,00
 
 </div>
 
-
 <div class="summary-box">
 
 <h3>Total planejado</h3>
@@ -682,7 +653,6 @@ R$ 0,00
 </strong>
 
 </div>
-
 
 <div class="summary-box">
 
@@ -694,17 +664,13 @@ R$ 0,00
 
 </div>
 
-
 </div>
-
 
 <h2>
 📊 Distribuição
 </h2>
 
-
 <div class="bars">
-
 
 <div class="bar-item">
 
@@ -722,7 +688,6 @@ id="barAluguel"
 
 </div>
 
-
 <div class="bar-item">
 
 <div class="bar-title">
@@ -738,7 +703,6 @@ id="barComida"
 </div>
 
 </div>
-
 
 <div class="bar-item">
 
@@ -756,7 +720,6 @@ id="barTransporte"
 
 </div>
 
-
 <div class="bar-item">
 
 <div class="bar-title">
@@ -772,7 +735,6 @@ id="barContas"
 </div>
 
 </div>
-
 
 <div class="bar-item">
 
@@ -790,7 +752,6 @@ id="barDiversao"
 
 </div>
 
-
 <div class="bar-item">
 
 <div class="bar-title">
@@ -806,7 +767,6 @@ id="barTecnologia"
 </div>
 
 </div>
-
 
 <div class="bar-item">
 
@@ -824,7 +784,6 @@ id="barExtras"
 
 </div>
 
-
 <div class="bar-item">
 
 <div class="bar-title">
@@ -841,9 +800,7 @@ id="barEconomia"
 
 </div>
 
-
 </div>
-
 
 <!-- MECÂNICA INTELIGENTE -->
 
@@ -858,12 +815,10 @@ id="inteligencia"
 
 <p id="analise"></p>
 
-
 <div
 class="alerta"
 id="alerta"
 ></div>
-
 
 <div
 class="redistribuicao"
@@ -879,13 +834,11 @@ O site encontrou dinheiro que pode ser melhor aproveitado.
 Escolha para onde deseja direcioná-lo:
 </p>
 
-
 <div class="destino">
 
 <label>
 Destino do dinheiro:
 </label>
-
 
 <select id="destino">
 
@@ -905,7 +858,6 @@ Destino do dinheiro:
 
 </div>
 
-
 <div class="acoes">
 
 <button
@@ -914,7 +866,6 @@ onclick="redistribuir()"
 >
 🔄 Redistribuir dinheiro
 </button>
-
 
 <button
 class="botao-cancelar"
@@ -925,23 +876,18 @@ Cancelar
 
 </div>
 
-
 </div>
 
 </div>
-
 
 <div
 class="mensagem"
 id="mensagem"
 ></div>
 
-
 </div>
 
-
 </div>
-
 
 <footer>
 
@@ -949,65 +895,63 @@ Meu Dinheiro © 2026
 
 </footer>
 
-
-
 <script>
-
 
 /* ==========================================
    CONFIGURAÇÃO
 ========================================== */
 
-
 let perfilSelecionado = "economico";
 
-
 let valorRedirecionar = 0;
-
 
 let fonteExcesso = [];
 
 
+/* ==========================================
+   NOVAS PORCENTAGENS
+========================================== */
+
 const perfis = {
 
-economico: {
+    economico: {
 
-aluguel:25,
-comida:15,
-transporte:10,
-contas:10,
-diversao:5,
-tecnologia:5,
-extras:5,
-economia:25
+        aluguel:25,
+        comida:15,
+        contas:10,
+        diversao:10,
+        tecnologia:10,
+        extras:5,
+        transporte:5,
+        economia:10
 
-},
+    },
 
-equilibrado: {
+    equilibrado: {
 
-aluguel:30,
-comida:15,
-transporte:10,
-contas:10,
-diversao:7,
-tecnologia:5,
-extras:8,
-economia:15
+        aluguel:25,
+        comida:15,
+        contas:10,
+        diversao:10,
+        tecnologia:10,
+        extras:5,
+        transporte:5,
+        economia:10
 
-},
+    },
 
-lazer: {
+    lazer: {
 
-aluguel:30,
-comida:15,
-transporte:10,
-contas:10,
-diversao:10,
-tecnologia:10,
-extras:5,
-economia:10
+        aluguel:25,
+        comida:15,
+        contas:10,
+        diversao:10,
+        tecnologia:10,
+        extras:5,
+        transporte:5,
+        economia:10
 
-}
+    }
 
 };
 
@@ -1016,25 +960,24 @@ economia:10
    FORMATAÇÃO
 ========================================== */
 
-
 function dinheiro(valor) {
 
-return valor.toLocaleString(
-"pt-BR",
-{
-style:"currency",
-currency:"BRL"
-}
-);
+    return valor.toLocaleString(
+        "pt-BR",
+        {
+            style:"currency",
+            currency:"BRL"
+        }
+    );
 
 }
 
 
 function valor(id) {
 
-return Number(
-document.getElementById(id).value
-) || 0;
+    return Number(
+        document.getElementById(id).value
+    ) || 0;
 
 }
 
@@ -1043,31 +986,27 @@ document.getElementById(id).value
    PERFIL
 ========================================== */
 
-
 function selecionarPerfil(perfil) {
 
-perfilSelecionado = perfil;
+    perfilSelecionado = perfil;
 
+    document
+    .querySelectorAll(".perfil")
+    .forEach(el =>
+        el.classList.remove("ativo")
+    );
 
-document
-.querySelectorAll(".perfil")
-.forEach(el =>
-el.classList.remove("ativo")
-);
+    const nomes = {
 
+        economico:"perfilEconomico",
+        equilibrado:"perfilEquilibrado",
+        lazer:"perfilLazer"
 
-const nomes = {
+    };
 
-economico:"perfilEconomico",
-equilibrado:"perfilEquilibrado",
-lazer:"perfilLazer"
-
-};
-
-
-document
-.getElementById(nomes[perfil])
-.classList.add("ativo");
+    document
+    .getElementById(nomes[perfil])
+    .classList.add("ativo");
 
 }
 
@@ -1076,43 +1015,38 @@ document
    CRIAR ORÇAMENTO
 ========================================== */
 
-
 function criarOrcamento() {
 
-const renda = valor("renda");
+    const renda = valor("renda");
 
+    if(renda <= 0) {
 
-if(renda <= 0) {
+        alert(
+            "Digite sua renda mensal primeiro."
+        );
 
-alert(
-"Digite sua renda mensal primeiro."
-);
+        return;
 
-return;
+    }
 
-}
+    const porcentagens =
+        perfis[perfilSelecionado];
 
+    Object.keys(porcentagens)
+    .forEach(categoria => {
 
-const porcentagens =
-perfis[perfilSelecionado];
+        document
+        .getElementById(categoria)
+        .value =
+        (
+            renda *
+            porcentagens[categoria] /
+            100
+        ).toFixed(2);
 
+    });
 
-Object.keys(porcentagens)
-.forEach(categoria => {
-
-document
-.getElementById(categoria)
-.value =
-(
-renda *
-porcentagens[categoria] /
-100
-).toFixed(2);
-
-});
-
-
-calcular();
+    calcular();
 
 }
 
@@ -1121,147 +1055,122 @@ calcular();
    CALCULAR
 ========================================== */
 
-
 function calcular() {
 
-const renda = valor("renda");
+    const renda = valor("renda");
 
+    if(renda <= 0) {
 
-if(renda <= 0) {
+        alert(
+            "Digite sua renda mensal primeiro."
+        );
 
-alert(
-"Digite sua renda mensal primeiro."
-);
+        return;
 
-return;
+    }
 
-}
+    const gastos = {
 
+        aluguel:valor("aluguel"),
+        comida:valor("comida"),
+        transporte:valor("transporte"),
+        contas:valor("contas"),
+        diversao:valor("diversao"),
+        tecnologia:valor("tecnologia"),
+        extras:valor("extras"),
+        economia:valor("economia")
 
-const gastos = {
+    };
 
-aluguel:valor("aluguel"),
-comida:valor("comida"),
-transporte:valor("transporte"),
-contas:valor("contas"),
-diversao:valor("diversao"),
-tecnologia:valor("tecnologia"),
-extras:valor("extras"),
-economia:valor("economia")
+    const total =
 
-};
+        gastos.aluguel +
+        gastos.comida +
+        gastos.transporte +
+        gastos.contas +
+        gastos.diversao +
+        gastos.tecnologia +
+        gastos.extras +
+        gastos.economia;
 
+    const sobra =
+        renda - total;
 
-const total =
+    document
+    .getElementById("resultado")
+    .style.display = "block";
 
-gastos.aluguel +
-gastos.comida +
-gastos.transporte +
-gastos.contas +
-gastos.diversao +
-gastos.tecnologia +
-gastos.extras +
-gastos.economia;
+    document
+    .getElementById("totalRenda")
+    .textContent =
+    dinheiro(renda);
 
+    document
+    .getElementById("totalGastos")
+    .textContent =
+    dinheiro(total);
 
-const sobra =
-renda - total;
+    document
+    .getElementById("restante")
+    .textContent =
+    dinheiro(sobra);
 
+    const restante =
+        document.getElementById("restante");
 
-document
-.getElementById("resultado")
-.style.display = "block";
+    restante.className =
+        sobra >= 0
+        ? "positive"
+        : "negative";
 
+    const categorias = [
 
-document
-.getElementById("totalRenda")
-.textContent =
-dinheiro(renda);
+        ["aluguel","valorAluguel","barAluguel"],
+        ["comida","valorComida","barComida"],
+        ["transporte","valorTransporte","barTransporte"],
+        ["contas","valorContas","barContas"],
+        ["diversao","valorDiversao","barDiversao"],
+        ["tecnologia","valorTecnologia","barTecnologia"],
+        ["extras","valorExtras","barExtras"],
+        ["economia","valorEconomia","barEconomia"]
 
+    ];
 
-document
-.getElementById("totalGastos")
-.textContent =
-dinheiro(total);
+    categorias.forEach(item => {
 
+        const categoria = item[0];
 
-document
-.getElementById("restante")
-.textContent =
-dinheiro(sobra);
+        document
+        .getElementById(item[1])
+        .textContent =
+        dinheiro(gastos[categoria]);
 
+        let porcentagem =
+            gastos[categoria] /
+            renda *
+            100;
 
-const restante =
-document.getElementById("restante");
+        porcentagem =
+            Math.min(porcentagem,100);
 
+        document
+        .getElementById(item[2])
+        .style.width =
+        porcentagem + "%";
 
-restante.className =
-sobra >= 0
-? "positive"
-: "negative";
+    });
 
+    analisarDinheiro(
+        renda,
+        gastos,
+        sobra
+    );
 
-const categorias = [
-
-["aluguel","valorAluguel","barAluguel"],
-
-["comida","valorComida","barComida"],
-
-["transporte","valorTransporte","barTransporte"],
-
-["contas","valorContas","barContas"],
-
-["diversao","valorDiversao","barDiversao"],
-
-["tecnologia","valorTecnologia","barTecnologia"],
-
-["extras","valorExtras","barExtras"],
-
-["economia","valorEconomia","barEconomia"]
-
-];
-
-
-categorias.forEach(item => {
-
-const categoria = item[0];
-
-document
-.getElementById(item[1])
-.textContent =
-dinheiro(gastos[categoria]);
-
-
-let porcentagem =
-gastos[categoria] /
-renda *
-100;
-
-
-porcentagem =
-Math.min(porcentagem,100);
-
-
-document
-.getElementById(item[2])
-.style.width =
-porcentagem + "%";
-
-});
-
-
-analisarDinheiro(
-renda,
-gastos,
-sobra
-);
-
-
-document
-.getElementById("resultado")
-.scrollIntoView({
-behavior:"smooth"
-});
+    document
+    .getElementById("resultado")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
 
 }
 
@@ -1270,199 +1179,150 @@ behavior:"smooth"
    ANÁLISE INTELIGENTE
 ========================================== */
 
-
 function analisarDinheiro(
-renda,
-gastos,
-sobra
+    renda,
+    gastos,
+    sobra
 ) {
 
+    const inteligencia =
+        document.getElementById("inteligencia");
 
-const inteligencia =
-document.getElementById("inteligencia");
+    const analise =
+        document.getElementById("analise");
 
+    const alerta =
+        document.getElementById("alerta");
 
-const analise =
-document.getElementById("analise");
+    const redistribuicao =
+        document.getElementById("redistribuicao");
 
+    inteligencia.style.display =
+        "block";
 
-const alerta =
-document.getElementById("alerta");
+    redistribuicao.style.display =
+        "none";
 
+    valorRedirecionar = 0;
 
-const redistribuicao =
-document.getElementById("redistribuicao");
+    fonteExcesso = [];
 
+    const limites = {
 
-inteligencia.style.display =
-"block";
+        diversao:10,
+        tecnologia:10,
+        extras:5
 
+    };
 
-redistribuicao.style.display =
-"none";
+    let excessoTotal = 0;
 
+    Object.keys(limites)
+    .forEach(categoria => {
 
-valorRedirecionar = 0;
+        const limite =
+            renda *
+            limites[categoria] /
+            100;
 
-fonteExcesso = [];
+        if(gastos[categoria] > limite) {
 
+            const excesso =
+                gastos[categoria] -
+                limite;
 
-/*
-    IDENTIFICA CATEGORIAS
-    DESNECESSÁRIAS ACIMA DO LIMITE
-*/
+            excessoTotal +=
+                excesso;
 
+            fonteExcesso.push({
 
-const limites = {
+                categoria:categoria,
 
-diversao:8,
+                valor:excesso
 
-tecnologia:8,
+            });
 
-extras:7
+        }
 
-};
+    });
 
+    let sobraRedirecionavel =
+        Math.max(sobra,0);
 
-let excessoTotal = 0;
+    valorRedirecionar =
+        sobraRedirecionavel +
+        excessoTotal;
 
+    if(valorRedirecionar > 0) {
 
-Object.keys(limites)
-.forEach(categoria => {
+        analise.innerHTML = `
 
-const limite =
-renda *
-limites[categoria] /
-100;
+        O sistema encontrou
+        <strong>
+        ${dinheiro(valorRedirecionar)}
+        </strong>
+        que pode ser melhor aproveitado.
 
+        `;
 
-if(gastos[categoria] > limite) {
+        let detalhes = "";
 
-const excesso =
-gastos[categoria] -
-limite;
+        if(sobraRedirecionavel > 0) {
 
+            detalhes += `
 
-excessoTotal +=
-excesso;
+            💵 Você tem
+            <span class="reserva">
+            ${dinheiro(sobraRedirecionavel)}
+            </span>
+            que não foi utilizado.
 
+            <br>
 
-fonteExcesso.push({
+            `;
 
-categoria:categoria,
+        }
 
-valor:excesso
+        if(excessoTotal > 0) {
 
-});
+            detalhes += `
 
-}
+            ⚠️ Você está gastando aproximadamente
+            <span class="excesso">
+            ${dinheiro(excessoTotal)}
+            </span>
+            acima do limite sugerido em
+            diversão, tecnologia ou extras.
 
-});
+            `;
 
+        }
 
-/*
-    DINHEIRO SOBRANDO
-*/
+        alerta.innerHTML =
+            detalhes;
 
+        redistribuicao.style.display =
+            "block";
 
-let sobraRedirecionavel =
-Math.max(sobra,0);
+    } else {
 
+        analise.innerHTML = `
 
-/*
-    SOMA O EXCESSO
-*/
+        ✅ Seu dinheiro está bem distribuído.
+        Não encontramos sobra ou excesso
+        significativo nas categorias analisadas.
 
+        `;
 
-valorRedirecionar =
-sobraRedirecionavel +
-excessoTotal;
+        alerta.innerHTML = `
 
+        💡 Continue acompanhando seus gastos.
+        Uma reserva financeira pode ajudar
+        em situações inesperadas.
 
-/*
-    SE HOUVER DINHEIRO
-*/
+        `;
 
-
-if(valorRedirecionar > 0) {
-
-
-analise.innerHTML = `
-
-O sistema encontrou
-<strong>
-${dinheiro(valorRedirecionar)}
-</strong>
-que pode ser melhor aproveitado.
-
-`;
-
-
-let detalhes = "";
-
-
-if(sobraRedirecionavel > 0) {
-
-detalhes += `
-
-💵 Você tem
-<span class="reserva">
-${dinheiro(sobraRedirecionavel)}
-</span>
-que não foi utilizado.
-
-<br>
-
-`;
-
-}
-
-
-if(excessoTotal > 0) {
-
-detalhes += `
-
-⚠️ Você está gastando aproximadamente
-<span class="excesso">
-${dinheiro(excessoTotal)}
-</span>
-acima do limite sugerido em
-diversão, tecnologia ou extras.
-
-`;
-
-}
-
-
-alerta.innerHTML =
-detalhes;
-
-
-redistribuicao.style.display =
-"block";
-
-
-} else {
-
-
-analise.innerHTML = `
-
-✅ Seu dinheiro está bem distribuído.
-Não encontramos sobra ou excesso
-significativo nas categorias analisadas.
-
-`;
-
-
-alerta.innerHTML = `
-
-💡 Continue acompanhando seus gastos.
-Uma reserva financeira pode ajudar
-em situações inesperadas.
-
-`;
-
-}
+    }
 
 }
 
@@ -1471,145 +1331,98 @@ em situações inesperadas.
    REDISTRIBUIR
 ========================================== */
 
-
 function redistribuir() {
 
+    if(valorRedirecionar <= 0) {
 
-if(valorRedirecionar <= 0) {
+        return;
 
-return;
+    }
 
-}
+    const destino =
+        document.getElementById("destino")
+        .value;
 
+    let reserva = 0;
 
-const destino =
-document.getElementById("destino")
-.value;
+    let necessidades = 0;
 
+    if(destino === "reserva") {
 
-let reserva = 0;
+        reserva =
+            valorRedirecionar;
 
-let necessidades = 0;
+    } else if(destino === "necessidades") {
 
+        necessidades =
+            valorRedirecionar;
 
-/*
-    RESERVA
-*/
+    } else {
 
+        reserva =
+            valorRedirecionar *
+            0.60;
 
-if(destino === "reserva") {
+        necessidades =
+            valorRedirecionar *
+            0.40;
 
-reserva =
-valorRedirecionar;
+    }
 
+    const economiaAtual =
+        valor("economia");
 
-/*
-    NECESSIDADES
-*/
+    document
+    .getElementById("economia")
+    .value =
+    (
+        economiaAtual +
+        reserva
+    ).toFixed(2);
 
+    const contasAtual =
+        valor("contas");
 
-} else if(destino === "necessidades") {
+    document
+    .getElementById("contas")
+    .value =
+    (
+        contasAtual +
+        necessidades
+    ).toFixed(2);
 
-necessidades =
-valorRedirecionar;
+    calcular();
 
+    const alerta =
+        document.getElementById("alerta");
 
-/*
-    DIVIDIR
-*/
+    alerta.innerHTML = `
 
+    🔄 <strong>Dinheiro redistribuído!</strong>
 
-} else {
+    <br><br>
 
-reserva =
-valorRedirecionar *
-0.60;
+    ${reserva > 0
+    ? `💰 ${dinheiro(reserva)} foram enviados para a reserva financeira.<br>`
+    : ""}
 
-necessidades =
-valorRedirecionar *
-0.40;
+    ${necessidades > 0
+    ? `🏠 ${dinheiro(necessidades)} foram direcionados para necessidades importantes.`
+    : ""}
 
-}
+    <br><br>
 
+    Agora esse dinheiro está sendo
+    planejado de uma maneira mais útil.
 
-/*
-    ADICIONAR À RESERVA
-*/
+    `;
 
+    document
+    .getElementById("redistribuicao")
+    .style.display =
+    "none";
 
-const economiaAtual =
-valor("economia");
-
-
-document
-.getElementById("economia")
-.value =
-(
-economiaAtual +
-reserva
-).toFixed(2);
-
-
-/*
-    ADICIONAR ÀS CONTAS
-    COMO "NECESSIDADES"
-*/
-
-
-const contasAtual =
-valor("contas");
-
-
-document
-.getElementById("contas")
-.value =
-(
-contasAtual +
-necessidades
-).toFixed(2);
-
-
-/*
-    ATUALIZAR
-*/
-
-
-calcular();
-
-
-const alerta =
-document.getElementById("alerta");
-
-
-alerta.innerHTML = `
-
-🔄 <strong>Dinheiro redistribuído!</strong>
-
-<br><br>
-
-${reserva > 0
-? `💰 ${dinheiro(reserva)} foram enviados para a reserva financeira.<br>`
-: ""}
-
-${necessidades > 0
-? `🏠 ${dinheiro(necessidades)} foram direcionados para necessidades importantes.`
-: ""}
-
-<br><br>
-
-Agora esse dinheiro está sendo
-planejado de uma maneira mais útil.
-
-`;
-
-
-document
-.getElementById("redistribuicao")
-.style.display =
-"none";
-
-
-valorRedirecionar = 0;
+    valorRedirecionar = 0;
 
 }
 
@@ -1618,21 +1431,17 @@ valorRedirecionar = 0;
    CANCELAR
 ========================================== */
 
-
 function fecharRedistribuicao() {
 
-document
-.getElementById("redistribuicao")
-.style.display =
-"none";
+    document
+    .getElementById("redistribuicao")
+    .style.display =
+    "none";
 
 }
 
-
 </script>
-
 
 </body>
 
 </html>
-```
