@@ -64,3 +64,1417 @@ header p {
 }
 
 .card h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #f8fafc;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #2a3447;
+    background: #0f1219;
+    color: #f8fafc;
+    font-size: 15px;
+    font-weight: 400;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* PERFIS */
+
+.perfis {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.perfil {
+    background: #0f1219;
+    border: 1px solid #2a3447;
+    border-radius: 10px;
+    padding: 20px 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.perfil:hover {
+    border-color: #475569;
+    transform: translateY(-2px);
+}
+
+.perfil.ativo {
+    border-color: #3b82f6;
+    background: #1e2638;
+}
+
+.perfil .emoji {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.perfil h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin-bottom: 6px;
+}
+
+.perfil p {
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* BOTÕES */
+
+.botoes {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+button {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.01em;
+}
+
+button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.botao-sugestao {
+    background: #4f46e5;
+}
+
+.botao-sugestao:hover {
+    background: #4338ca;
+}
+
+.botao-redistribuir {
+    background: #059669;
+}
+
+.botao-redistribuir:hover {
+    background: #047857;
+}
+
+.botao-cancelar {
+    background: #334155;
+    color: #cbd5e1;
+}
+
+.botao-cancelar:hover {
+    background: #475569;
+}
+
+/* GASTOS */
+
+.expenses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.expense {
+    background: #0f1219;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #2a3447;
+}
+
+.expense label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+}
+
+.expense small {
+    display: block;
+    color: #64748b;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+/* RESULTADO */
+
+.resultado {
+    display: none;
+}
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.summary-box {
+    padding: 20px;
+    border-radius: 8px;
+    background: #0f1219;
+    border: 1px solid #2a3447;
+}
+
+.summary-box h3 {
+    color: #94a3b8;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.summary-box strong {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.positive {
+    color: #10b981;
+}
+
+.negative {
+    color: #ef4444;
+}
+
+/* BARRAS */
+
+.bars {
+    margin-top: 20px;
+}
+
+.bar-item {
+    margin-bottom: 16px;
+}
+
+.bar-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.bar {
+    height: 8px;
+    background: #0f1219;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #2a3447;
+}
+
+.bar-fill {
+    height: 100%;
+    width: 0;
+    background: #3b82f6;
+    border-radius: 4px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* INTELIGÊNCIA */
+
+.inteligencia {
+    display: none;
+    margin-top: 28px;
+    padding: 24px;
+    border-radius: 10px;
+    background: #111827;
+    border: 1px solid #1f2937;
+}
+
+.inteligencia h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #f3f4f6;
+}
+
+.inteligencia p {
+    color: #9ca3af;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.alerta {
+    margin-top: 16px;
+    padding: 16px;
+    background: #0f1219;
+    border-radius: 8px;
+    border-left: 3px solid #3b82f6;
+    font-size: 14px;
+}
+
+.excesso {
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+.reserva {
+    color: #10b981;
+    font-weight: 600;
+}
+
+/* REDISTRIBUIÇÃO */
+
+.redistribuicao {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #0f1219;
+    border-radius: 8px;
+    border: 1px solid #2a3447;
+}
+
+.redistribuicao h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #f8fafc;
+}
+
+.destino {
+    margin-top: 14px;
+}
+
+.destino label {
+    display: block;
+    margin-bottom: 6px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.acoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.mensagem {
+    margin-top: 24px;
+    padding: 16px;
+    border-radius: 8px;
+    background: #0f1219;
+    border: 1px solid #2a3447;
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+footer {
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+    padding: 40px 20px;
+}
+
+@media(max-width:700px) {
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    .perfis {
+        grid-template-columns: 1fr;
+    }
+
+    .botoes,
+    .acoes {
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>bolsosemfuro</h1>
+
+<p>
+Painel Corporativo de Planejamento e Inteligência Financeira
+</p>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Receita Mensal</h2>
+
+<input
+    type="number"
+    id="renda"
+    placeholder="Informe a receita total (ex: 2500)"
+    min="0"
+    step="0.01"
+>
+
+<h2 style="margin-top:28px;">
+Perfil de Alocação
+</h2>
+
+<div class="perfis">
+
+<div
+class="perfil ativo"
+id="perfilEconomico"
+onclick="selecionarPerfil('economico')"
+>
+
+<div class="emoji">🛡️</div>
+
+<h3>Conservador</h3>
+
+<p>
+Foco em essencialidades e formação de reserva estratégica.
+</p>
+
+</div>
+
+<div
+class="perfil"
+id="perfilEquilibrado"
+onclick="selecionarPerfil('equilibrado')"
+>
+
+<div class="emoji">⚖️</div>
+
+<h3>Moderado</h3>
+
+<p>
+Equilíbrio estruturado entre essencial, estilo de vida e reservas.
+</p>
+
+</div>
+
+<div
+class="perfil"
+id="perfilLazer"
+onclick="selecionarPerfil('lazer')"
+>
+
+<div class="emoji">🚀</div>
+
+<h3>Dinâmico</h3>
+
+<p>
+Maior margem para inovação, tecnologia e lazer.
+</p>
+
+</div>
+
+</div>
+
+<div class="botoes">
+
+<button
+class="botao-sugestao"
+onclick="criarOrcamento()"
+>
+Gerar Projeção
+</button>
+
+<button onclick="calcular()">
+Calcular Distribuição
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Matriz de Custos</h2>
+
+<div class="expenses">
+
+<div class="expense">
+
+<label>Moradia</label>
+
+<input
+type="number"
+id="aluguel"
+value="0"
+min="0"
+>
+
+<small>
+Aluguel, condomínio, taxas
+</small>
+
+</div>
+
+<div class="expense">
+
+<label>Alimentação</label>
+
+<input
+type="number"
+id="comida"
+value="0"
+min="0"
+>
+
+<small>
+Suprimentos e insumos
+</small>
+
+</div>
+
+<div class="expense">
+
+<label>Transporte</label>
+
+<input
+type="number"
+id="transporte"
+value="0"
+min="0"
+>
+
+<small>
+Mobilidade e combustível
+</small>
+
+</div>
+
+<div class="expense">
+
+<label>Utilidades</label>
+
+<input
+type="number"
+id="contas"
+value="0"
+min="0"
+>
+
+<small>
+Energia, água, conectividade
+</small>
+
+</div>
+
+<div class="expense">
+
+<label>Entretenimento</label>
+
+<input
+type="number"
+id="diversao"
+value="0"
+min="0"
+>
+
+<small>
+Lazer e eventos
+</small>
+
+</div>
+
+<div class="expense">
+
+<label>Tecnologia</label>
+
+<input
+type="number"
+id="tecnologia"
+value="0"
+min="0"
+>
+
+<small>
+Equipamentos e serviços
+</small>
+
+</div>
+
+<div class="expense">
+
+<label>Outros Gastos</label>
+
+<input
+type="number"
+id="extras"
+value="0"
+min="0"
+>
+
+<small>
+Despesas contingenciais
+</small>
+
+</div>
+
+<div class="expense">
+
+<label>Reserva Estratégica</label>
+
+<input
+type="number"
+id="economia"
+value="0"
+min="0"
+>
+
+<small>
+Aplicações e poupança
+</small>
+
+</div>
+
+</div>
+
+</div>
+
+<div
+class="card resultado"
+id="resultado"
+>
+
+<h2>Balanço Projetado</h2>
+
+<div class="summary">
+
+<div class="summary-box">
+
+<h3>Receita Total</h3>
+
+<strong id="totalRenda">
+R$ 0,00
+</strong>
+
+</div>
+
+<div class="summary-box">
+
+<h3>Total Alocado</h3>
+
+<strong id="totalGastos">
+R$ 0,00
+</strong>
+
+</div>
+
+<div class="summary-box">
+
+<h3>Saldo Líquido</h3>
+
+<strong id="restante">
+R$ 0,00
+</strong>
+
+</div>
+
+</div>
+
+<h2>
+Detalhamento por Categoria
+</h2>
+
+<div class="bars">
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>Moradia</span>
+<span id="valorAluguel">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barAluguel"
+></div>
+</div>
+
+</div>
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>Alimentação</span>
+<span id="valorComida">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barComida"
+></div>
+</div>
+
+</div>
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>Transporte</span>
+<span id="valorTransporte">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barTransporte"
+></div>
+</div>
+
+</div>
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>Utilidades</span>
+<span id="valorContas">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barContas"
+></div>
+</div>
+
+</div>
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>Entretenimento</span>
+<span id="valorDiversao">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barDiversao"
+></div>
+</div>
+
+</div>
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>Tecnologia</span>
+<span id="valorTecnologia">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barTecnologia"
+></div>
+</div>
+
+</div>
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>Outros Gastos</span>
+<span id="valorExtras">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barExtras"
+></div>
+</div>
+
+</div>
+
+<div class="bar-item">
+
+<div class="bar-title">
+<span>Reserva Estratégica</span>
+<span id="valorEconomia">R$ 0</span>
+</div>
+
+<div class="bar">
+<div
+class="bar-fill"
+id="barEconomia"
+></div>
+</div>
+
+</div>
+
+</div>
+
+<div
+class="inteligencia"
+id="inteligencia"
+>
+
+<h2>
+Análise de Eficiência Financeira
+</h2>
+
+<p id="analise"></p>
+
+<div
+class="alerta"
+id="alerta"
+></div>
+
+<div
+class="redistribuicao"
+id="redistribuicao"
+>
+
+<h3>
+Realocação de Capital
+</h3>
+
+<p>
+Identificamos capital com margem para otimização. Selecione o destino desejado:
+</p>
+
+<div class="destino">
+
+<label>
+Destino da Realocação:
+</label>
+
+<select id="destino">
+
+<option value="reserva">
+Reserva Estratégica
+</option>
+
+<option value="necessidades">
+Despesas Essenciais
+</option>
+
+<option value="dividir">
+Distribuição Proporcional (60% Reserva / 40% Essenciais)
+</option>
+
+</select>
+
+</div>
+
+<div class="acoes">
+
+<button
+class="botao-redistribuir"
+onclick="redistribuir()"
+>
+Confirmar Realocação
+</button>
+
+<button
+class="botao-cancelar"
+onclick="fecharRedistribuicao()"
+>
+Cancelar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div
+class="mensagem"
+id="mensagem"
+></div>
+
+</div>
+
+</div>
+
+<footer>
+
+bolsosemfuro © 2026 — Plataforma Executiva de Planejamento
+
+</footer>
+
+<script>
+
+/* ==========================================
+   CONFIGURAÇÃO
+========================================== */
+
+let perfilSelecionado = "economico";
+
+let valorRedirecionar = 0;
+
+let fonteExcesso = [];
+
+
+/* ==========================================
+   PORCENTAGENS DE ALOCAÇÃO
+========================================== */
+
+const perfis = {
+
+    economico: {
+
+        aluguel:25,
+        comida:15,
+        contas:10,
+        diversao:10,
+        tecnologia:10,
+        extras:5,
+        transporte:5,
+        economia:10
+
+    },
+
+    equilibrado: {
+
+        aluguel:25,
+        comida:15,
+        contas:10,
+        diversao:10,
+        tecnologia:10,
+        extras:5,
+        transporte:5,
+        economia:10
+
+    },
+
+    lazer: {
+
+        aluguel:25,
+        comida:15,
+        contas:10,
+        diversao:10,
+        tecnologia:10,
+        extras:5,
+        transporte:5,
+        economia:10
+
+    }
+
+};
+
+
+/* ==========================================
+   FORMATAÇÃO
+========================================== */
+
+function dinheiro(valor) {
+
+    return valor.toLocaleString(
+        "pt-BR",
+        {
+            style:"currency",
+            currency:"BRL"
+        }
+    );
+
+}
+
+
+function valor(id) {
+
+    return Number(
+        document.getElementById(id).value
+    ) || 0;
+
+}
+
+
+/* ==========================================
+   PERFIL
+========================================== */
+
+function selecionarPerfil(perfil) {
+
+    perfilSelecionado = perfil;
+
+    document
+    .querySelectorAll(".perfil")
+    .forEach(el =>
+        el.classList.remove("ativo")
+    );
+
+    const nomes = {
+
+        economico:"perfilEconomico",
+        equilibrado:"perfilEquilibrado",
+        lazer:"perfilLazer"
+
+    };
+
+    document
+    .getElementById(nomes[perfil])
+    .classList.add("ativo");
+
+}
+
+
+/* ==========================================
+   CRIAR ORÇAMENTO
+========================================== */
+
+function criarOrcamento() {
+
+    const renda = valor("renda");
+
+    if(renda <= 0) {
+
+        alert(
+            "Informe o valor da receita total antes de prosseguir."
+        );
+
+        return;
+
+    }
+
+    const porcentagens =
+        perfis[perfilSelecionado];
+
+    Object.keys(porcentagens)
+    .forEach(categoria => {
+
+        document
+        .getElementById(categoria)
+        .value =
+        (
+            renda *
+            porcentagens[categoria] /
+            100
+        ).toFixed(2);
+
+    });
+
+    calcular();
+
+}
+
+
+/* ==========================================
+   CALCULAR
+========================================== */
+
+function calcular() {
+
+    const renda = valor("renda");
+
+    if(renda <= 0) {
+
+        alert(
+            "Informe o valor da receita total antes de prosseguir."
+        );
+
+        return;
+
+    }
+
+    const gastos = {
+
+        aluguel:valor("aluguel"),
+        comida:valor("comida"),
+        transporte:valor("transporte"),
+        contas:valor("contas"),
+        diversao:valor("diversao"),
+        tecnologia:valor("tecnologia"),
+        extras:valor("extras"),
+        economia:valor("economia")
+
+    };
+
+    const total =
+
+        gastos.aluguel +
+        gastos.comida +
+        gastos.transporte +
+        gastos.contas +
+        gastos.diversao +
+        gastos.tecnologia +
+        gastos.extras +
+        gastos.economia;
+
+    const sobra =
+        renda - total;
+
+    document
+    .getElementById("resultado")
+    .style.display = "block";
+
+    document
+    .getElementById("totalRenda")
+    .textContent =
+    dinheiro(renda);
+
+    document
+    .getElementById("totalGastos")
+    .textContent =
+    dinheiro(total);
+
+    document
+    .getElementById("restante")
+    .textContent =
+    dinheiro(sobra);
+
+    const restante =
+        document.getElementById("restante");
+
+    restante.className =
+        sobra >= 0
+        ? "positive"
+        : "negative";
+
+    const categorias = [
+
+        ["aluguel","valorAluguel","barAluguel"],
+        ["comida","valorComida","barComida"],
+        ["transporte","valorTransporte","barTransporte"],
+        ["contas","valorContas","barContas"],
+        ["diversao","valorDiversao","barDiversao"],
+        ["tecnologia","valorTecnologia","barTecnologia"],
+        ["extras","valorExtras","barExtras"],
+        ["economia","valorEconomia","barEconomia"]
+
+    ];
+
+    categorias.forEach(item => {
+
+        const categoria = item[0];
+
+        document
+        .getElementById(item[1])
+        .textContent =
+        dinheiro(gastos[categoria]);
+
+        let porcentagem =
+            gastos[categoria] /
+            renda *
+            100;
+
+        porcentagem =
+            Math.min(porcentagem,100);
+
+        document
+        .getElementById(item[2])
+        .style.width =
+        porcentagem + "%";
+
+    });
+
+    analisarDinheiro(
+        renda,
+        gastos,
+        sobra
+    );
+
+    document
+    .getElementById("resultado")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ==========================================
+   ANÁLISE INTELIGENTE
+========================================== */
+
+function analisarDinheiro(
+    renda,
+    gastos,
+    sobra
+) {
+
+    const inteligencia =
+        document.getElementById("inteligencia");
+
+    const analise =
+        document.getElementById("analise");
+
+    const alerta =
+        document.getElementById("alerta");
+
+    const redistribuicao =
+        document.getElementById("redistribuicao");
+
+    inteligencia.style.display =
+        "block";
+
+    redistribuicao.style.display =
+        "none";
+
+    valorRedirecionar = 0;
+
+    fonteExcesso = [];
+
+    const limites = {
+
+        diversao:10,
+        tecnologia:10,
+        extras:5
+
+    };
+
+    let excessoTotal = 0;
+
+    Object.keys(limites)
+    .forEach(categoria => {
+
+        const limite =
+            renda *
+            limites[categoria] /
+            100;
+
+        if(gastos[categoria] > limite) {
+
+            const excesso =
+                gastos[categoria] -
+                limite;
+
+            excessoTotal +=
+                excesso;
+
+            fonteExcesso.push({
+
+                categoria:categoria,
+
+                valor:excesso
+
+            });
+
+        }
+
+    });
+
+    let sobraRedirecionavel =
+        Math.max(sobra,0);
+
+    valorRedirecionar =
+        sobraRedirecionavel +
+        excessoTotal;
+
+    if(valorRedirecionar > 0) {
+
+        analise.innerHTML = `
+
+        Identificamos um montante de
+        <strong>
+        ${dinheiro(valorRedirecionar)}
+        </strong>
+        disponível para otimização de alocação.
+
+        `;
+
+        let detalhes = "";
+
+        if(sobraRedirecionavel > 0) {
+
+            detalhes += `
+
+            Saldo não alocado:
+            <span class="reserva">
+            ${dinheiro(sobraRedirecionavel)}
+            </span>.
+
+            <br>
+
+            `;
+
+        }
+
+        if(excessoTotal > 0) {
+
+            detalhes += `
+
+            Alocação acima do parâmetro recomendado:
+            <span class="excesso">
+            ${dinheiro(excessoTotal)}
+            </span>
+            nas categorias não essenciais (Entretenimento, Tecnologia ou Outros).
+
+            `;
+
+        }
+
+        alerta.innerHTML =
+            detalhes;
+
+        redistribuicao.style.display =
+            "block";
+
+    } else {
+
+        analise.innerHTML = `
+
+        A alocação de recursos está alinhada aos parâmetros recomendados.
+        Não foram identificados desvios relevantes.
+
+        `;
+
+        alerta.innerHTML = `
+
+        Recomendamos manter o monitoramento contínuo do fluxo financeiro.
+
+        `;
+
+    }
+
+}
+
+
+/* ==========================================
+   REDISTRIBUIR
+========================================== */
+
+function redistribuir() {
+
+    if(valorRedirecionar <= 0) {
+
+        return;
+
+    }
+
+    const destino =
+        document.getElementById("destino")
+        .value;
+
+    let reserva = 0;
+
+    let necessidades = 0;
+
+    if(destino === "reserva") {
+
+        reserva =
+            valorRedirecionar;
+
+    } else if(destino === "necessidades") {
+
+        necessidades =
+            valorRedirecionar;
+
+    } else {
+
+        reserva =
+            valorRedirecionar *
+            0.60;
+
+        necessidades =
+            valorRedirecionar *
+            0.40;
+
+    }
+
+    const economiaAtual =
+        valor("economia");
+
+    document
+    .getElementById("economia")
+    .value =
+    (
+        economiaAtual +
+        reserva
+    ).toFixed(2);
+
+    const contasAtual =
+        valor("contas");
+
+    document
+    .getElementById("contas")
+    .value =
+    (
+        contasAtual +
+        necessidades
+    ).toFixed(2);
+
+    calcular();
+
+    const alerta =
+        document.getElementById("alerta");
+
+    alerta.innerHTML = `
+
+    <strong>Realocação efetuada com sucesso.</strong>
+
+    <br><br>
+
+    ${reserva > 0
+    ? `Reserva Estratégica: +${dinheiro(reserva)}<br>`
+    : ""}
+
+    ${necessidades > 0
+    ? `Despesas Essenciais (Utilidades): +${dinheiro(necessidades)}`
+    : ""}
+
+    <br><br>
+
+    Os valores foram consolidados no balanço projetado.
+
+    `;
+
+    document
+    .getElementById("redistribuicao")
+    .style.display =
+    "none";
+
+    valorRedirecionar = 0;
+
+}
+
+
+/* ==========================================
+   CANCELAR
+========================================== */
+
+function fecharRedistribuicao() {
+
+    document
+    .getElementById("redistribuicao")
+    .style.display =
+    "none";
+
+}
+
+</script>
+
+</body>
+
+</html>
